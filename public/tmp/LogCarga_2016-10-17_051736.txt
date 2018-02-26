@@ -1,0 +1,40 @@
+CORRECTO: Calificación actualizada para BIOLOGIA I 7244 ALARCON SANCHEZ MEGAN JEANICE Clave: $2y$10$nb6Q.teN8S9TWCx3sa 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7252 ANTEZANA ZUNA ERIC MATEO Clave: $2y$10$aUtFT5vf2EnLrR0INU 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7255 ARANIBAR PENDOLA NAOMI ZOE Clave: $2y$10$HuWNyuSLFpUqRIbN7D 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7266 BURGOA ROJAS VALENTINA VICTORIA Clave: $2y$10$.CuRdjsNO6jamegOJY 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7271 CENTELLAS SORIA FABRICIO Clave: $2y$10$9ZQS0UpA/Itt0hsC8S 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7273 CHACON QUIÑONES LUZ NATALIA Clave: $2y$10$h08IghtH6jLgM5AHfh 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7282 CRUZ ISIJARA POLY SARA Clave: $2y$10$4JESqpSKmouzJUwCqY 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7287 DELGADO URQUIZO ALEJANDRO ADRIAN Clave: $2y$10$pN3sqO2ktmkcL/Q1E. 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7292 ERGUETA ENDARA VALENTINA LISBETH Clave: $2y$10$ec1RyEyWvqZouJ7h8O 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7295 FERNANDEZ IBAÑEZ GABRIEL ALEJANDRO Clave: $2y$10$b2ALBknXRUZpU/SVdy 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7301 GALLARDO MARTINEZ ABRIL ISABELA Clave: $2y$10$9AFgFUqdjUJ0pNhAbh 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7307 GONGORA ASTORGA ARON WALTER Clave: $2y$10$IQIO546l02DIayIv9H 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7313 GRIFFITHS ALBA DAYANNA MELANIE Clave: $2y$10$xbmgVJvcwwd.hKTDZO 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7314 GUTIERREZ CALVO RENATO AMILCAR Clave: $2y$10$b/cFO7mbfAUv.NUIYg 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7324 IPORRE OVANDO LEANDRO GAEL Clave: $2y$10$nLVKR7Ysc0mYOhQZf5 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7328 LOPEZ CASTILLO KELVIN PAOLO Clave: $2y$10$ZBVj2N.OW.ohT8P.lj 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7331 LUPE SUXO LAURA ALEJANDRA Clave: $2y$10$wv7/X0SutdEDci0IO/ 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7335 MARTINEZ SANTALLA BRANDON IAN Clave: $2y$10$M98PkDeOwXnsuI2lXD 
+CORRECTO: Calificación actualizada para BIOLOGIA I 7468 CHINO ZILVETTY ELIAS FRANCISCO Clave: $2y$10$P7/91cdtRNISc6pSZF 
+CORRECTO: Calificación actualizada para BIOLOGIA I 5210 ZAMORANO GORRITTI MARCELO DAYMOND Clave: $2y$10$m2SbpqP.atHUSCloV7 
+CORRECTO: Calificación actualizada para BIOLOGIA I 6613 ZEBALLOS SANCHEZ CESAR ANDRES Clave: $2y$10$dG/myQOqMr2HtuooTF 
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  
+ERROR: No se pudo cargar calificacion para  - Clave:  

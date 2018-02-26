@@ -1,0 +1,19 @@
+{
+  "name": "biblioteca",
+  "description": "sistema de Aprovechamiento para la DGBAP",
+  "main": "bower.json",
+  "authors": [
+    "DGBAP <ronald.chavezg@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "biblioteca",
+    "libros",
+    "busqueda"
+  ],
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}

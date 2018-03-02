@@ -3,8 +3,9 @@
 @include('layouts.partials.status')
 <div class="card-panel">
     <h5 class="header2"><strong>REPORTE DE APROVECHAMIENTO SOSTENIBLE DE CUERO DE LAGARTO <i>(Caiman yacare)</i></strong></h5>
+    
     {!! Form::open(['route' => 'cueroregional.store', 'class' => 'form-horizontal']) !!}
-    {!! Form::hidden('TipoFormulario','P') !!}
+
     En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTENIBLE DEL LAGARTO (Caiman yacare) se presenta el siguiente reporte, CORRESPONDIENTE A LA COSECHA DE LA GESTIÓN:
 </p>
     <div class="row">
@@ -39,10 +40,14 @@
           {!! Form::number('Telefono', null) !!}
           {!! Form::label('Telefono', 'Telefono/Celular: ') !!}
         </div>
+        <div class="input-field col s12 m9 l9">
+          {!! Form::text('CorreoElectronico', null) !!}
+          {!! Form::label('CorreoElectronico', 'Correo Electronico: ') !!}
+        </div>
     </div>    
     <div class="row">
         <div class="input-field right-align col s12 m12">
-          {!! Form::button('<i class="material-icons right triggerButton">skip_next</i>SIGUIENTE PASO...', ['class' => 'btn formButton','type'=>'submit']) !!}
+          {!! Form::button('<i class="material-icons right triggerButton">skip_next</i>SIGUIENTE PASO....', ['class' => 'btn formButton','type'=>'submit']) !!}
         </div>
     </div>
     

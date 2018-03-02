@@ -72,13 +72,21 @@ Route::group(['middleware' => 'auth'], function () {
 	/*CUERO*/
 	Route::resource('informacionCuero', 'InformacionCueroController');
 	Route::get('downloadTipoDocumento/{id}',['as'=>'downloadTipoDocumento','uses'=>'TipoDocumentoController@descargarDocumento']);
+	
 	Route::resource('cueroregional', 'CueroRegionalController');
-	Route::post('saveComunidad',['as'=>'saveComunidad','uses'=>'CueroRegionalController@storeComunidad']);
 	Route::post('saveAprovechamiento',['as'=>'saveAprovechamiento','uses'=>'CueroRegionalController@storeAprovechamiento']);
 	Route::post('saveBeneficio',['as'=>'saveBeneficio','uses'=>'CueroRegionalController@storeBeneficio']);
 	Route::post('saveCamposExtras',['as'=>'saveCamposExtras','uses'=>'CueroRegionalController@storeCamposExtras']);
-	Route::get('createComunidadPopUp/{id}',['as'=>'createComunidadPopUp','uses'=>'CueroRegionalController@createComunidadPopUp']);
-
+	
+	/*CUERO REGIONAL COMUNIDAD*/
+	Route::resource('cueroregionalcomunidad', 'CueroRegionalComunidadController');
+	
+	/*CUERO REGIONAL APROVECHAMIENTO*/
+	Route::resource('cueroregionalaprovechamiento', 'CueroRegionalAprovechamientoController');
+	
+	/*CUERO REGIONAL BENENFICIO*/
+	Route::resource('cueroregionalbeneficio', 'CueroRegionalBeneficioController');
+	
 
 	/*REPORTES*/
 	Route::get('reporte',['as'=>'reporte','uses'=>'ReporteController@index']);
@@ -86,8 +94,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('reportes',['as'=>'reportes','uses'=>'TipoReporteController@reporte']);
 	Route::post('generaReporte',['as'=>'generaReporte','uses'=>'TipoReporteController@genera']);
 	Route::post('generaReportEmpresa',['as'=>'generaReporteEmpresa','uses'=>'TipoReporteController@generaEmpresa']);
+
+	/*REPORTES CUERO REGIONAL*/
+		Route::get('printCueroRegional/{id}',['as'=>'printCueroRegional','uses'=>'CueroRegionalController@imprimir']);
 });
 	Route::get('tipodocumentoweb',['as'=>'descarga_documentos','uses'=>'TipoDocumentoController@indexWeb']);
 	Route::get('downloadTipoDocumento/{id}',['as'=>'downloadTipoDocumento','uses'=>'TipoDocumentoController@descargarDocumento']);
-
 

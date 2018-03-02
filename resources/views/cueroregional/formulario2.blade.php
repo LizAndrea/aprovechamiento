@@ -6,47 +6,50 @@
 En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTENIBLE DEL LAGARTO (Caiman yacare) se presenta el siguiente reporte, CORRESPONDIENTE A LA COSECHA DE LA GESTIÓN:
   
   <!--TABLA DE COMUNIDAD-->
-    {!! Form::open(['route' => 'saveComunidad', 'class' => 'form-horizontal']) !!}
-        {!! Form::hidden('cueroRegional',$cueroRegional)!!} 
-  <div class="card-panel">
-    <h6 class="header2"><strong>B.  DATOS GENERALES DE LAS COMUNIDADES DE LA REGIONAL <strong></h6>
-    Llene en los cuadros correspondientes y adicione más filas en caso necesario.
+  {!! Form::model($cueroRegional, [
+        'method' => 'PATCH',
+        'route' => ['cueroregional.update', $cueroRegional->id],
+        'class' => 'form-horizontal'
+    ]) !!}
+
+    {!! Form::hidden('cueroRegional',$cueroRegional->id)!!} 
+
   <div class="row">
+        <div class="col s12 m3 l3">
+            {!! Form::label('Fecha', 'Fecha del Reporte:') !!}
+            {!! Form::date('Fecha', null,['class'=>'datepicker']) !!}
+        </div>
+    </div>
+    <h6 class="header2"><strong>A. DATOS GENERALES DE LA REGIÓN <strong></h6>
+    <div class="row">
         <div class="input-field col s12 m5 l5">
-          {!! Form::text('Provincia', null) !!}
-          {!! Form::label('Provincia', 'Provincia: ') !!}
+          {!! Form::text('Regional', null) !!}
+          {!! Form::label('Regional', 'Nombre de Regional (TCO, predio, comunidad): ') !!}
         </div>
         <div class="input-field col s12 m5 l5">
-          {!! Form::text('Municipio', null) !!}
-          {!! Form::label('Municipio', 'Municipio: ') !!}
+          {!! Form::number('Cupo', null) !!}
+          {!! Form::label('Cupo', 'Cupo aprobado para la gestión: ') !!}
         </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::text('Comunidad', null) !!}
-          {!! Form::label('Comunidad', 'Comunidad: ') !!}
+        <div class="input-field col s12 m9 l9">
+          {!! Form::text('RepresentanteLegal', null) !!}
+          {!! Form::label('RepresentanteLegal', 'Nombre del Representante Legal: ') !!}
         </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::number('NumeroCazadores', null) !!}
-          {!! Form::label('NumeroCazadores', 'Numero de Cazadores: ') !!}
-        </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::text('Representante', null) !!}
-          {!! Form::label('Representante', 'Representante Comunal: ') !!}
+        <div class="col s12 m5 l5">
+            {!! Form::label('Departamento', 'Departamento: ') !!}
+            {!! Form::select('Departamento', $departamento,null,['class'=>'selectable2']) !!}
         </div>
         <div class="input-field col s12 m5 l5">
           {!! Form::number('Telefono', null) !!}
           {!! Form::label('Telefono', 'Telefono/Celular: ') !!}
         </div>
-    </div>  
-
-    <div class="row">
-      <div class="input-field right-align col s12 m12">
-        {!! Form::button('<i class="material-icons right  triggerButton">add</i>ADICIONAR COMUNIDAD', ['class' => 'btn formButton','type'=>'submit']) !!}
-      </div>
+        <div class="input-field col s12 m9 l9">
+          {!! Form::text('CorreoElectronico', null) !!}
+          {!! Form::label('CorreoElectronico', 'Correo Electronico: ') !!}
+        </div>
     </div>
-  
-  {!! Form::close() !!}  
-
-<div class="card-panel">
+  <div class="card-panel">
+    <h6 class="header2"><strong>B.  DATOS GENERALES DE LAS COMUNIDADES DE LA REGIONAL <strong></h6>
+    Llene en los cuadros correspondientes y adicione más filas en caso necesario. 
     <table class="table table-bordered table-striped table-hover highlight dataTable">
     <thead>
         <tr>
@@ -67,16 +70,12 @@ En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTEN
             <td>{{ $item->Telefono }}</td>
             <td>{{ $item->NumeroCazadores }}</td>
             <td>
-                <a href="{{url('printColaborador',$item->id)}}" 
-                  class="tooltipped" data-tooltip="{{trans('Imprimir')}}">
-                    <i class="material-icons right">print</i>
-                </a>
-                <a href="{{ route('cueroregional.edit', $item->id) }}" 
+                <a href="{{ route('cueroregionalcomunidad.edit', $item->id) }}" 
                    class="tooltipped" data-tooltip="{{trans('labels.edit')}}">
                     <i class="material-icons right">mode_edit</i>
                 </a>
-                 <a href="{{ route('cueroregional.destroy', $item->id) }}" 
-                   class="tooltipped" data-tooltip="{{trans('labels.delete')}}">
+                 <a href="{{ route('cueroregionalcomunidad.destroy', $item->id) }}" 
+                   class="tooltipped" data-tooltip="{{trans('labels.edit')}}">
                     <i class="material-icons right">delete</i>
                 </a>
             </td>
@@ -84,51 +83,21 @@ En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTEN
     @endforeach
     </tbody>
 </table>
+<div class="row">
+      <div class="input-field right-align col s12 m12">
+        <a class="modal-trigger btn-large light-blue darken-4" href="#modal1">
+          <i class="material-icons right triggerButton">add</i>ADICIONAR COMUNIDAD
+        </a>
+
+      </div>
+    </div>
 </div>
 </p></p></p>
 
 <!--TABLA DE APROVECHAMIENTO-->
-{!! Form::open(['route' => 'saveAprovechamiento', 'class' => 'form-horizontal']) !!}
-    {!! Form::hidden('cueroRegional',$cueroRegional)!!}
-
+  <div class="card-panel">
     <h6 class="header2"><strong>C.  DATOS DEL APROVECHAMIENTO Y COMERCIALIZACIÓN DE LOS CUEROS <strong></h6>
-    Llene en los cuadros correspondientes y adicione más filas en caso necesario. Recuerde que la tabla se debe llenar con los cupos que se asigna a cada comunidad que compone la REGIONAL de la TCO, Predio ó Comunidad. Si no se asignan cupos por comunidad, llene con los datos totales de la REGIONAL.
-    <div class="row">
-        <div class="input-field col s12 m5 l5">
-          {!! Form::text('Comunidad', null) !!}
-          {!! Form::label('Comunidad', 'Comunidad o Regional: ') !!}
-        </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::number('Cupo', null) !!}
-          {!! Form::label('Cupo', 'Cupo de la Comunidad: ') !!}
-        </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::number('CupoAprovechado', null) !!}
-          {!! Form::label('CupoAprovechado', 'Cupo Aprovechado: ') !!}
-        </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::number('CueroRechazado', null) !!}
-          {!! Form::label('CueroRechazado', 'Nro. Cueros Rechazados: ') !!}
-        </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::number('CueroVendido', null) !!}
-          {!! Form::label('CueroVendido', 'Nro. Cueros Vendidos: ') !!}
-        </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::label('Empresa', 'Empresa: ') !!}
-          {!! Form::select('Empresa', $empresa,null,['class'=>'selectable2']) !!}
-        </div>
-    </div>  
-
-    <div class="row">
-      <div class="input-field right-align col s12 m12">
-        {!! Form::button('<i class="material-icons right triggerButton">add</i>ADICIONAR APROVECHAMIENTO', ['class' => 'btn formButton','type'=>'submit']) !!}
-      </div>
-    </div>
-  
-  {!! Form::close() !!}  
-
-<div class="card-panel">
+    
     <table class="table table-bordered table-striped table-hover highlight dataTable">
     <thead>
         <tr>
@@ -153,15 +122,11 @@ En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTEN
             <td>{{ $item->CueroVendido }}</td>
             <td>{{ $item->esEmpresa->Empresa }}</td>
             <td>
-                  <a href="{{url('printColaborador',$item->id)}}" 
-                  class="tooltipped" data-tooltip="{{trans('Imprimir')}}">
-                    <i class="material-icons right">print</i>
-                </a>
-                <a href="{{ route('cueroregional.edit', $item->id) }}" 
+                <a href="{{ route('cueroregionalaprovechamiento.edit', $item->id) }}" 
                    class="tooltipped" data-tooltip="{{trans('labels.edit')}}">
                     <i class="material-icons right">mode_edit</i>
                 </a>
-                 <a href="{{ route('cueroregional.destroy', $item->id) }}" 
+                <a href="{{ route('cueroregionalaprovechamiento.destroy', $item->id) }}" 
                    class="tooltipped" data-tooltip="{{trans('labels.delete')}}">
                     <i class="material-icons right">delete</i>
                 </a>
@@ -170,41 +135,19 @@ En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTEN
     @endforeach
     </tbody>
 </table>
-</div>
-
-</p></p></p>
-<!--TABLA DE BENEFICIOS-->
-<h6 class="header2"><strong>D.  BENEFICIOS POR LA COMERCIALIZACIÓN DE CUERO DE LAGARTO <strong></h6>
-
-{!! Form::open(['route' => 'saveBeneficio', 'class' => 'form-horizontal']) !!}
-    {!! Form::hidden('cueroRegional',$cueroRegional)!!}
-  <div class="row">
-        <div class="input-field col s12 m5 l5">
-          {!! Form::number('TotalBeneficio', null) !!}
-          {!! Form::label('TotalBeneficio', 'Total Beneficio Economico Percivido (Bs): ') !!}
-        </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::number('TotalGasto', null) !!}
-          {!! Form::label('TotalGasto', 'Total Gasto de Operación (Bs): ') !!}
-        </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::number('TotalAporte', null) !!}
-          {!! Form::label('TotalAporte', 'Total Aporte Comunal/Organización (Bs): ') !!}
-        </div>
-        <div class="input-field col s12 m5 l5">
-          {!! Form::number('TotalBeneficioDistribuido', null) !!}
-          {!! Form::label('TotalBeneficioDistribuido', 'Total Beneficios Eoconómicos Distribuidos (Bs): ') !!}
-        </div>
-    </div>  
-
-    <div class="row">
+<div class="row">
       <div class="input-field right-align col s12 m12">
-        {!! Form::button('<i class="material-icons right  triggerButton">add</i>ADICIONAR BENEFICIO', ['class' => 'btn formButton','type'=>'submit']) !!}
+        <a class="modal-trigger btn-large light-blue darken-4" href="#modal2">
+          <i class="material-icons right triggerButton">add</i>ADICIONAR APROVECHAMIENTO
+        </a>
       </div>
     </div>
-  {!! Form::close() !!}  
+
+</div>
+<!--TABLA DE BENEFICIOS-->
 <div class="card-panel">
-    <table class="table table-bordered table-striped table-hover highlight dataTable">
+<h6 class="header2"><strong>D.  BENEFICIOS POR LA COMERCIALIZACIÓN DE CUERO DE LAGARTO <strong></h6>
+   <table class="table table-bordered table-striped table-hover highlight dataTable">
     <thead>
         <tr>
             <th>Total de Beneficios Económicos Percibidos de la comercialización (Bs)</th>
@@ -222,15 +165,11 @@ En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTEN
             <td>{{ $item->TotalAporte }}</td>
             <td>{{ $item->TotalBeneficioDistribuido }}</td>
             <td>
-                  <a href="{{url('printColaborador',$item->id)}}" 
-                  class="tooltipped" data-tooltip="{{trans('Imprimir')}}">
-                    <i class="material-icons right">print</i>
-                </a>
-                <a href="{{ route('cueroregional.edit', $item->id) }}" 
+                <a href="{{ route('cueroregionalbeneficio.edit', $item->id) }}" 
                    class="tooltipped" data-tooltip="{{trans('labels.edit')}}">
                     <i class="material-icons right">mode_edit</i>
                 </a>
-                 <a href="{{ route('cueroregional.destroy', $item->id) }}" 
+                <a href="{{ route('cueroregionalbeneficio.destroy', $item->id) }}" 
                    class="tooltipped" data-tooltip="{{trans('labels.delete')}}">
                     <i class="material-icons right">delete</i>
                 </a>
@@ -240,9 +179,14 @@ En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTEN
     </tbody>
 </table>
 *Los gastos de operación son aquellos que utilizo en compras o pagos como: compra de balas, gasolina, balanzas, cuchillos y otros.
+<div class="row">
+      <div class="input-field right-align col s12 m12">
+        <a class="modal-trigger btn-large light-blue darken-4" href="#modal3">
+          <i class="material-icons right triggerButton">add</i>ADICIONAR BENEFICIO
+        </a>
+      </div>
+    </div>
 </div>
-{!! Form::open(['route' => 'saveCamposExtras', 'class' => 'form-horizontal']) !!}
-{!! Form::hidden('cueroRegional',$cueroRegional)!!}
 <div class="row">
     <div class="input-field col s12 m5 l5">
       {!! Form::textarea('MotivoRechazo', null,['class'=>'materialize-textarea']) !!}
@@ -262,11 +206,12 @@ En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTEN
 <div class="row">
     <div class="input-field right-align col s12 m12">
       {!! Form::button('<i class="material-icons right triggerButton">save</i>FINALIZAR REPORTE REGIONAL', ['class' => 'btn formButton','type'=>'submit']) !!}
+      <a href="{{route('cueroregional.index')}}" class="btn formButton"><i class="material-icons right">clear</i>Cancelar</a>
+
     </div>
 </div>
 
 {!! Form::close() !!}
-</div>
 Nota: La información contenida en el presente documento tiene carácter de declaración jurada.
 </br>ADJUNTAR: 
 </br>1.  Actas de procedencia cuero o guías de movilización de cuero. 
@@ -283,10 +228,6 @@ Nota: La información contenida en el presente documento tiene carácter de decl
         selectYears: 15 ,// Creates a dropdown of 15 years to control year
         format: 'yyyy-mm-dd'
     });
-
-    
-
-
   });
   $('.modal-trigger').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
@@ -300,13 +241,29 @@ Nota: La información contenida en el presente documento tiene carácter de decl
     });
 </script>
 
-<div id="modal2" class="modal modal-fixed-footer" style="width:80%;height:100%;">
+<div id="modal1" class="modal modal-fixed-footer" style="width:100%;height:100%;">
     <div class="modal-content">
-      @include('cueroregional.create')
+        @include('cueroregionalcomunidad.create', array('miVar' => $cueroRegional->id))     
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
     </div>
-</div>
+</div>   
+<div id="modal2" class="modal modal-fixed-footer" style="width:100%;height:100%;">
+    <div class="modal-content">
+        @include('cueroregionalaprovechamiento.create', array('miVar' => $cueroRegional->id))     
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
+    </div>
+</div>   
+<div id="modal3" class="modal modal-fixed-footer" style="width:100%;height:100%;">
+    <div class="modal-content">
+        @include('cueroregionalbeneficio.create', array('miVar' => $cueroRegional->id))     
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
+    </div>
+</div>   
 
 @endsection

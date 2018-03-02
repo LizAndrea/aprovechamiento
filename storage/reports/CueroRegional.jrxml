@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CarneVenta" pageWidth="612" pageHeight="792" whenNoDataType="BlankPage" columnWidth="556" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" uuid="845f6ea8-8b3a-457e-9d20-480287dd2a63">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="approvechamiento"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="865"/>
+	<parameter name="idReporte" class="java.lang.Integer"/>
+	<parameter name="Logo" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["http://approvechamiento.app/images/logo.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LogoBolivia" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["http://approvechamiento.app/images/logoBolivia.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\www\\approvechamiento\\storage\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT c.fecha, c.regional, c.representanteLegal, d.departamento, c.telefono, c.correoElectronico c.cupo, c.motivoRechazo, c.informacionRechazo, c.observaciones, d.Departamento
+FROM cueroregional c
+left join departamento d on c.Departamento = d.id
+WHERE c.id = $P{idReporte}
+]]>
+	</queryString>
+	<field name="fecha" class="java.util.Date"/>
+	<field name="regional" class="java.lang.String"/>
+	<field name="cupo" class="java.lang.Integer"/>
+	<field name="representanteLegal" class="java.lang.String"/>
+	<field name="departamento" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="motivoRechazo" class="java.lang.String"/>
+	<field name="informacionRechazo" class="java.lang.String"/>
+	<field name="observaciones" class="java.lang.String"/>
+	<field name="correoElectronico" class="java.lang.String"/>
+	<group name="firmas">
+		<groupExpression><![CDATA[$P{idReporte}]]></groupExpression>
+		<groupFooter>
+			<band height="213">
+				<frame>
+					<reportElement uuid="6feaaae6-6c88-46f4-a9ac-512ef3a58e19" mode="Opaque" x="24" y="7" width="505" height="194" backcolor="#CCCCCC"/>
+					<rectangle>
+						<reportElement uuid="1a91e8b8-dd30-4090-8de7-7b036d5a801a" x="15" y="14" width="227" height="54"/>
+					</rectangle>
+					<rectangle>
+						<reportElement uuid="1a91e8b8-dd30-4090-8de7-7b036d5a801a" x="15" y="114" width="471" height="54"/>
+					</rectangle>
+					<staticText>
+						<reportElement uuid="959381a1-184a-4fe3-bbca-2fc6fa165c9d" x="39" y="174" width="403" height="15"/>
+						<box>
+							<topPen lineWidth="1.0" lineStyle="Dashed" lineColor="#000000"/>
+							<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[FIRMA Y SELLO DE LA GOBERNACIÓN DEPARTAMENTAL-AREA CORRESPONDIENTE]]></text>
+					</staticText>
+				</frame>
+				<rectangle>
+					<reportElement uuid="1a91e8b8-dd30-4090-8de7-7b036d5a801a" x="283" y="21" width="227" height="54"/>
+				</rectangle>
+				<staticText>
+					<reportElement uuid="959381a1-184a-4fe3-bbca-2fc6fa165c9d" x="39" y="84" width="227" height="15"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Dashed" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[FIRMA Y SELLO DEL REPRESENTANTE:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="959381a1-184a-4fe3-bbca-2fc6fa165c9d" x="283" y="84" width="227" height="32"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Dashed" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[FIRMA Y SELLO DE LA GOBERNACIÓN DEPARTAMENTAL CORRESPONDIENTE]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="datos3">
+		<groupExpression><![CDATA[$P{idReporte}]]></groupExpression>
+		<groupFooter>
+			<band height="89">
+				<frame>
+					<reportElement uuid="fa9a69ba-174b-49c0-b616-d50e0523c8b7" mode="Opaque" x="4" y="0" width="549" height="80" backcolor="#CCFFCC"/>
+					<staticText>
+						<reportElement uuid="923024a3-fb85-4964-a539-881ad712257e" x="8" y="21" width="261" height="41">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Otras observaciones que considere importante reportar]]></text>
+					</staticText>
+					<textField pattern="" isBlankWhenNull="true">
+						<reportElement uuid="808c9cff-823b-4e97-9bd4-2076263727a7" mode="Opaque" x="273" y="21" width="269" height="41" backcolor="#CCCCCC"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+							<paragraph leftIndent="5"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="beneficio">
+		<groupExpression><![CDATA[$P{idReporte}]]></groupExpression>
+		<groupFooter>
+			<band height="106">
+				<staticText>
+					<reportElement uuid="923024a3-fb85-4964-a539-881ad712257e" x="2" y="11" width="527" height="14">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[D. BENEFICIOS POR LA COMERCIALIZACIÓN DE CUERO DE LAGARTO:]]></text>
+				</staticText>
+				<subreport>
+					<reportElement uuid="1ce78c1d-087d-4e97-972a-8b2b06aea313" x="2" y="25" width="435" height="47"/>
+					<subreportParameter name="cueroRegional">
+						<subreportParameterExpression><![CDATA[$P{idReporte}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SubBeneficio.jasper"]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement uuid="923024a3-fb85-4964-a539-881ad712257e" x="7" y="77" width="527" height="22">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[*Los gastos de operación son aquellos que utilizo en compras o pagos como: compra de balas, gasolina, balanzas, cuchillos y otros.]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="datos2">
+		<groupExpression><![CDATA[$P{idReporte}]]></groupExpression>
+		<groupFooter>
+			<band height="154">
+				<frame>
+					<reportElement uuid="fa9a69ba-174b-49c0-b616-d50e0523c8b7" mode="Opaque" x="4" y="5" width="549" height="134" backcolor="#CCFFCC"/>
+					<staticText>
+						<reportElement uuid="923024a3-fb85-4964-a539-881ad712257e" x="3" y="22" width="261" height="41">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Motivo por el cual se rechazaron los cueros reportados]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="966fa42f-9226-415b-9bfd-8198c51b8cd4" x="3" y="88" width="283" height="36">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Indicar donde se encuentran o a quien se comercializo los cueros rechazados]]></text>
+					</staticText>
+					<textField pattern="" isBlankWhenNull="true">
+						<reportElement uuid="808c9cff-823b-4e97-9bd4-2076263727a7" mode="Opaque" x="286" y="22" width="256" height="41" backcolor="#CCCCCC"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+							<paragraph leftIndent="5"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{motivoRechazo}]]></textFieldExpression>
+					</textField>
+					<textField pattern="" isBlankWhenNull="true">
+						<reportElement uuid="1f6602a7-5d03-451c-8152-e7774b1fcf0b" mode="Opaque" x="286" y="83" width="256" height="41" backcolor="#CCCCCC"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+							<paragraph leftIndent="5"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{informacionRechazo}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="aprovechamiento">
+		<groupExpression><![CDATA[$P{idReporte}]]></groupExpression>
+		<groupFooter>
+			<band height="83">
+				<staticText>
+					<reportElement uuid="923024a3-fb85-4964-a539-881ad712257e" x="2" y="4" width="527" height="14">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[C. DATOS DEL APROVECHAMIENTO Y COMERCIALIZACIÓN DE LOS CUEROS:]]></text>
+				</staticText>
+				<subreport>
+					<reportElement uuid="e4b538a6-5e6f-4103-b9be-e31d8e906d79" x="0" y="18" width="437" height="52"/>
+					<subreportParameter name="cueroRegional">
+						<subreportParameterExpression><![CDATA[$P{idReporte}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SubAprovechamiento.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="comunidad">
+		<groupExpression><![CDATA[$P{idReporte}]]></groupExpression>
+		<groupFooter>
+			<band height="83">
+				<staticText>
+					<reportElement uuid="923024a3-fb85-4964-a539-881ad712257e" x="4" y="0" width="443" height="14">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[B. DATOS GENERALES DE LAS COMUNIDADES DE LA REGIONAL:]]></text>
+				</staticText>
+				<subreport>
+					<reportElement uuid="10af5e2e-db31-45a4-a91f-36835fddc7bf" x="0" y="19" width="437" height="43"/>
+					<subreportParameter name="cueroRegional">
+						<subreportParameterExpression><![CDATA[$P{idReporte}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SubComunidad.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="datos1">
+		<groupExpression><![CDATA[$P{idReporte}]]></groupExpression>
+		<groupFooter>
+			<band height="235">
+				<frame>
+					<reportElement uuid="fa9a69ba-174b-49c0-b616-d50e0523c8b7" mode="Opaque" x="7" y="27" width="549" height="188" backcolor="#CCFFCC"/>
+					<staticText>
+						<reportElement uuid="923024a3-fb85-4964-a539-881ad712257e" x="3" y="22" width="298" height="14">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[A. INFORMACIÓN GENERAL DE LA REGION:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="86687436-10be-49b6-9593-c93ce058e8e5" x="3" y="44" width="96" height="16">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Nombre de la]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="966fa42f-9226-415b-9bfd-8198c51b8cd4" x="3" y="88" width="273" height="16">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Nombra/Apellido Representante legal:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="96363bb0-3c05-4b02-8597-1ab91587da90" x="3" y="119" width="110" height="16">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Departamento:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="3c91968a-8790-4457-b24f-f0b518106061" x="237" y="118" width="162" height="16">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Teléfonos, fijo/celular:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="86687436-10be-49b6-9593-c93ce058e8e5" x="276" y="44" width="180" height="16">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+							<paragraph lineSpacing="Single"/>
+						</textElement>
+						<text><![CDATA[Cupo cantidad aprobada para la gestion:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="86687436-10be-49b6-9593-c93ce058e8e5" x="278" y="60" width="173" height="16">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+							<paragraph lineSpacing="Single"/>
+						</textElement>
+						<text><![CDATA[para la gestion:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="86687436-10be-49b6-9593-c93ce058e8e5" x="3" y="60" width="93" height="16">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Regional:]]></text>
+					</staticText>
+					<textField pattern="" isBlankWhenNull="true">
+						<reportElement uuid="808c9cff-823b-4e97-9bd4-2076263727a7" mode="Opaque" x="101" y="47" width="160" height="26" backcolor="#CCCCCC"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+							<paragraph leftIndent="2"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{regional}]]></textFieldExpression>
+					</textField>
+					<textField pattern="" isBlankWhenNull="true">
+						<reportElement uuid="1f6602a7-5d03-451c-8152-e7774b1fcf0b" mode="Opaque" x="273" y="83" width="254" height="26" backcolor="#CCCCCC"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+							<paragraph leftIndent="2"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{representanteLegal}]]></textFieldExpression>
+					</textField>
+					<textField pattern="" isBlankWhenNull="true">
+						<reportElement uuid="3399ffef-072b-41df-8b58-965f997d84a3" mode="Opaque" x="120" y="113" width="109" height="26" backcolor="#CCCCCC"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+							<paragraph leftIndent="2"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{departamento}]]></textFieldExpression>
+					</textField>
+					<textField pattern="" isBlankWhenNull="true">
+						<reportElement uuid="94802a79-344c-4970-8187-11a8b7e5a72d" mode="Opaque" x="399" y="113" width="144" height="26" backcolor="#CCCCCC"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+							<paragraph leftIndent="2"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+					</textField>
+					<textField pattern="" isBlankWhenNull="true">
+						<reportElement uuid="808c9cff-823b-4e97-9bd4-2076263727a7" mode="Opaque" x="459" y="47" width="80" height="26" backcolor="#CCCCCC"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+							<paragraph leftIndent="2"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{cupo}]]></textFieldExpression>
+					</textField>
+					<textField pattern="" isBlankWhenNull="true">
+						<reportElement uuid="3399ffef-072b-41df-8b58-965f997d84a3" mode="Opaque" x="273" y="145" width="254" height="26" backcolor="#CCCCCC"/>
+						<box>
+							<topPen lineWidth="0.5"/>
+							<leftPen lineWidth="0.5"/>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="12"/>
+							<paragraph leftIndent="2"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{correoElectronico}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement uuid="96363bb0-3c05-4b02-8597-1ab91587da90" x="5" y="151" width="254" height="16">
+							<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						</reportElement>
+						<textElement textAlignment="Left">
+							<font fontName="DejaVu Sans" size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Correo Electronico Representante: ]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement uuid="c6f6e487-b372-4a4e-a120-9cc2e8f18f96" x="9" y="2" width="182" height="21">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha del Reporte:]]></text>
+				</staticText>
+				<textField pattern="yyyy/mm/dd" isBlankWhenNull="true">
+					<reportElement uuid="48cf6021-44e9-411e-8c30-61e1f7621c71" mode="Opaque" x="198" y="2" width="175" height="21" backcolor="#CCCCCC"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="63" splitType="Stretch">
+			<image>
+				<reportElement uuid="7135ea35-b774-452a-b89f-4efd8c25bd38" x="29" y="0" width="71" height="63"/>
+				<imageExpression><![CDATA[$P{LogoBolivia}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="e42b3a4a-1380-4e09-99cf-a9508e248695" x="450" y="0" width="84" height="63"/>
+				<imageExpression><![CDATA[$P{Logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="ff7f193f-bafd-43b2-a294-398e19af753c" x="0" y="11" width="557" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ministerio de Medio Ambiente y Agua]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="b20f060a-4efc-47b3-b00f-ee6376b43de4" x="50" y="45" width="450" height="1">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="124" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement uuid="54801237-59dc-4b1d-9377-3c8a64cccf8b" x="0" y="3" width="557" height="36">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTERIO DE MEDIO AMBIENTE Y AGUA
+VICEMINISTERIO DE MEDIO, BIODIVERSIDAD, CAMBIOS CLIMÁTICOS, Y DE GESTIÓN Y DESARROLLO FORESTAL
+DIRECCIÓN GENERAL DE BIODIVERSIDAD Y ÁREAS PROTEGIDAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="849d9ed4-6325-4c3c-9094-5d0c06ff33ce" x="9" y="40" width="538" height="47">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[En el marco del PROGRAMA NACIONAL PARA LA CONSERVACIÓN Y APROVECHAMIENTO SOSTENIBLE DE LAGARTO (Caiman yacare) se instituye el presente FORMULARIO, documento de Declaración Jurada e Instrumento que denota transparencia y legalidad del proceso correspondiente a la COSECHA DE LA GESTION 2017 respecto al cuero de Lagarto. El establecimiento de información falsa en el presente, de forma dolosa,será sancionado conforme a derecho.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0a76f00d-a020-4b32-8ad5-77b5c9ca3b12" mode="Opaque" x="1" y="97" width="460" height="18" backcolor="#339900">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMULARIO DE REPORTE: APROVECHAMIENTO SOSTENIBLE DE CUERO DE LAGARTO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b2402bce-e2c5-4912-a480-c140358cb2a6" mode="Opaque" x="452" y="97" width="104" height="18" backcolor="#339900">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="11" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[(Caiman yacare)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band height="13" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement uuid="d5f20e68-76b8-4719-8ee6-6c2b3cebf8a1" x="0" y="2" width="557" height="19">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[VICEMINISTERIO DE MEDIO AMBIENTE, BIODIVERSIDAD CAMBIOS Y DE GESTIÓN Y DESARROLLO FORESTAL
+AV. CAMACHO No. 1474 - Telf.: 2146382 - 2146385 - 2146374]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="30db4bfe-1f91-4b9f-95ec-bf11cada1123" x="0" y="0" width="557" height="1">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band/>
+	</lastPageFooter>
+	<summary>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</summary>
+</jasperReport>

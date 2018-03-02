@@ -19,7 +19,7 @@ class CueroRegional extends Model
      *
      * @var array
      */
-    protected $fillable = ['version', 'Cupo', 'Fecha','NumeroFormulario', 'Regional', 'RepresentanteLegal', 'Telefono', 'Departamento', 'EstadoFormulario', 'MotivoRechazo', 'InformacionRechazo', 'Observaciones', 'UsuarioRegistro', 
+    protected $fillable = ['version', 'Cupo', 'Fecha','NumeroFormulario', 'Regional', 'RepresentanteLegal', 'Telefono', 'CorreoElectronico' ,'Departamento', 'EstadoFormulario', 'MotivoRechazo', 'InformacionRechazo', 'Observaciones', 'UsuarioRegistro', 
                                     'CreatorUser','CreatorFullName','UpdaterUser','UpdaterFullName'];
 
     public function esDepartamento(){

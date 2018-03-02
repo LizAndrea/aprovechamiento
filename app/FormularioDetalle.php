@@ -1,12 +1,10 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
 class FormularioDetalle extends Model
 {
-
     /**
      * The database table used by the model.
      *

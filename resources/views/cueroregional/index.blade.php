@@ -28,7 +28,7 @@
     </thead>
     <tbody>
     @foreach($cueroRegional as $item)
-        <tr class='clickable-row {{$item->classFormulario()}}' data-href='{{url('/formulario', $item->id)}}'>
+        <tr>
             <!--<td class="right-align">{{ $item->NumeroFormulario }}</td>-->
             <td>{{ \Carbon\Carbon::parse($item->Fecha)->format('d-m-Y') }}</td>
             <td>{{ $item->esDepartamento->Departamento }}</td>
@@ -36,7 +36,11 @@
             <td>{{ $item->RepresentanteLegal }}</td>
             <td>{{ $item->Telefono }}</td>
             <td>
-                <a href="{{url('printColaborador',$item->id)}}" 
+             <a href="{{ route('cueroregional.destroy', $item->id) }}" 
+                   class="tooltipped" data-tooltip="{{trans('labels.delete')}}">
+                    <i class="material-icons right">delete</i>
+                </a>
+                <a href="{{url('printCueroRegional',$item->id)}}" 
                   class="tooltipped" data-tooltip="{{trans('Imprimir')}}">
                     <i class="material-icons right">print</i>
                 </a>
@@ -44,10 +48,7 @@
                    class="tooltipped" data-tooltip="{{trans('labels.edit')}}">
                     <i class="material-icons right">mode_edit</i>
                 </a>
-                 <a href="{{ route('cueroregional.destroy', $item->id) }}" 
-                   class="tooltipped" data-tooltip="{{trans('labels.delete')}}">
-                    <i class="material-icons right">delete</i>
-                </a>                
+                          
             </td>
         </tr>
     @endforeach
@@ -73,14 +74,4 @@
       //complete: function() { $("#formCarneCompra").trigger('reset'); } // Callback for Modal close
     });
 </script> 
-
-<div id="modal1" class="modal modal-fixed-footer" style="width:100%;height:100%;">
-    <div class="modal-content">
-      @include('cueroregional.create')
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cerrar</a>
-    </div>
-</div>   
-
 @endsection
